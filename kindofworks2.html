@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html{
+	background-image: url("back5.jpg");
+}
+.dropbtn {
+    background-image: url("greenb.jpg");
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+	width: 200px;
+	height: 30px;
+	margin-left: 43.75%;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius: 26px;
+	z-index:101;
+
+}
+
+.dropbtn2 {
+    background-image: url("greenbb.jpg");
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+	width: 200px;
+	height: 30px;
+	margin-left: 43.75%;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius: 26px;
+	z-index:97;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-image: url("greenb2.jpg")
+
+}
+
+.dropbtn2:hover, .dropbtn2:focus {
+    background-image: url("greenbb2.jpg")
+
+}
+
+
+.hider{
+	display: none;
+	z-index: 102;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+	width: 100%;
+	height: 100%;
+	z-index: 101;
+}
+
+.dropdown-content {
+
+	position: absolute;
+    background-color: #cdcdcd;
+	width: 100%
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 100;
+	margin-left: 30%;
+	text-align: left;
+	border-radius: 5px;
+
+}
+
+
+
+.show {display:block;}
+.search_bar{
+	background: transparent;
+    background: rgba(163, 135, 106, 0.15);
+    background-clip: padding-box;
+
+    border: none;
+    border-radius:         26px;
+    -moz-border-radius:    26px;
+    -o-border-radius:      26px;
+    -webkit-border-radius: 26px;
+
+    box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.1),
+                        0 1px 0 rgba(255, 255, 255, 0.5),
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+                        0 0 40px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow:    inset 0 0 5px rgba(0, 0, 0, 0.1),
+                        0 1px 0 rgba(255, 255, 255, 0.5),
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+                        0 0 40px rgba(255, 255, 255, 0.3);
+    -o-box-shadow:      inset 0 0 5px rgba(0, 0, 0, 0.1),
+                        0 1px 0 rgba(255, 255, 255, 0.5),
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+                        0 0 40px rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1),
+                        0 1px 0 rgba(255, 255, 255, 0.5),
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+                        0 0 40px rgba(255, 255, 255, 0.3);
+
+    color: white;
+    height: 26px;
+    margin-left: 42%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+    outline: none;
+    padding: 0 20px 0 35px;
+
+    transition:         all .1s linear;
+    -moz-transition:    all .1s linear;
+    -o-transition:      all .1s linear;
+    -webkit-transition: all .1s linear;
+
+    width: 185px;
+}
+
+.Table_Class{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-color: red;
+	z-index:99;
+	background: transparent;
+	background: rgba(0, 148, 135, 0.15)
+
+
+}
+
+a{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font: 8px;
+	color: white;
+	text-decoration: underline;
+
+}
+td{
+	font-color: black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn"></button>
+	<div id="myDropdown" class="hider">
+		<form id="tfnewsearch" method="get" >
+			<input type="text" class="search_bar" id="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="Search" class="tfbutton">
+		</form>
+		<div id="movies" class="dropdown-content"></div>
+	</div>
+</div>
+<br></br>
+<table style='width:100%' id='myTable' class="Table_Class" border="1px">
+
+	<tr>
+		<th style = 'text-align:left; color: white'>Show Name</th>
+		<th style = 'text-align:left; color: white'>Show Year</th>
+		<th style = 'text-align: left; color: white'>Show Type</th>
+	</tr>
+</table>
+
+<button type='button' id='empty button'>Empty table</button>
+
+<script>
+  var b = document.getElementById('empty button');
+  var table = document.getElementById('myTable');
+  b.addEventListener('click',function(e){
+	if (confirm("Are you sure you want to do this?")){
+		while(table.rows.length > 1) {
+		  table.deleteRow(1);
+		}
+	}
+    
+});
+</script>
+
+<script>
+  function deletebuttonOne() {
+      var table = document.getElementById('myTable');
+      document.getElementById("delete_button").classList.toggle("show");
+      console.log(table.rows[0]);
+      var thing = table.rows[0];
+      console.log(thing.cells[1]);
+  }
+</script>
+
+<div class="Delete">
+<button onclick="deletebuttonOne()" class="dropbtn2"></button>
+	<div id="delete_button" class="hider">
+		<form id="delete_search" method="get">
+			<input type="text" class="search_bar" id="DeleteTextInput" name="q" size="21" maxlength="120"><input type="submit" value="Search" class="tfbutton">
+		</form>
+		<div id="all_movies"></div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+
+var f = document.getElementById('delete_search');
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  var user_input = document.getElementById('DeleteTextInput').value;
+  var table = document.getElementById('myTable');
+  $('#all_movies').empty();
+	var printed = 0;
+  for(var i = 1; i < table.rows.length; i++) {
+    if(table.rows[i].innerHTML.toLowerCase().indexOf(user_input) > -1){
+			if(printed == 0)
+			{
+				  $('#all_movies').append("<table style = '40%' id='myTable'><tr><th> Movie name</th>  <th> Movie Year</th></tr></table>");
+					printed = 1;
+			}
+      var mainDiv = $('<div><tr><td>' + table.rows[i].cells[0].firstChild.nodeValue + '</td> <td>(' + table.rows[i].cells[1].firstChild.nodeValue + ')</td></tr></div> ');
+      var button = $('<button type="button" class = "add-button">remove</button>');
+      var onclick = function(i){
+        return function(){
+          table.deleteRow(i);
+          $('#all_movies').empty();
+        }
+      }
+      button.on('click',onclick(i));
+      mainDiv.append(button);
+      $('#all_movies').append(mainDiv);
+
+    }
+  }
+});
+
+
+
+</script>
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+var a = document.getElementById('tfnewsearch');
+a.addEventListener('submit',function(e) {
+    $('#movies').empty();
+
+
+	e.preventDefault();
+
+    var user_input = document.getElementById('tftextinput').value;
+
+	/**var user_input = prompt('Enter your Show')**/
+	var result_array = [];
+	var url_full = "http://imdb.wemakesites.net/api/search?q="+user_input;
+	var titles = [];
+	var total_results = 0;
+	$.ajax({
+		url: url_full,
+		crossDomain: true,
+		dataType: "jsonp",
+		success: function(data) {
+			//console.log(data);
+			total_results = data.data.results.titles.length
+			for (i=0; i<total_results;i++){
+				result_array.push(data.data.results.titles[i].id);
+			}
+			console.log(result_array);
+			for (i=0;i<result_array.length;i++){
+				$.ajax({
+					url: "http://www.omdbapi.com/?r=json&i="+result_array[i],
+					crossDomain: true,
+					dataType: "jsonp",
+					success: function(data) {
+
+						movie_title = data.Title;
+						movie_year = data.Year;
+						movie_poster = data.Poster;
+						movie_plot = data.Plot;
+						movie_ID = data.imdbID;
+						movie_type = data.Type;
+						//console.log(movie_title,movie_year);
+						/**$('#movies').append('<div><a href="http://www.imdb.com/title/' + data.imdbID + '">' + movie_title + ' ' + movie_year +'</a><img src="' + movie_poster + '" width= 2.5% height= 7.5% em></div>');**/
+
+						var mainDiv = $('<div class="singleMovie"><img src="' + movie_poster + '" width= 2.5% height= 7.5% em><a target = "_blank" href="http://www.imdb.com/title/' + data.imdbID + '">' + movie_title + ' (' + movie_year +')</a></div> ');
+						var button = $('<button type="button" class = "add-button" >Add</button>');
+						//console.log(movie_title)
+						var onclick = function(movie_title, movie_year, movie_ID, movie_type) {
+							return function() {
+								if($('#myTable td:contains('+movie_ID+')').length){
+									alert('Movie/TV Show already on the list!');
+									
+								}
+								else{
+									rowObj = $('<tr style="color: white"><td>'+movie_title+'</td><td>'+movie_year+'</td><td>'+movie_type+'<p hidden>'+movie_ID+'</p></td></tr>');
+									$('#myTable').append(rowObj);
+								}
+
+
+
+
+							}
+						}
+						button.on('click', onclick(movie_title, movie_year, movie_ID, movie_type));
+						mainDiv.append(button);
+						$('#movies').append(mainDiv);
+					}
+
+				});
+			}
+
+		}
+	});
+
+});
+
+
+
+</script>
+</body>
+</html>
